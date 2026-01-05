@@ -1,0 +1,254 @@
+
+body {
+    font-size: clamp(13px, 1.1vw, 16px);
+}
+
+/*
+   BODY SECTION
+*/
+#BODY {
+    height: min(100vh, 100svh);
+}
+
+@media (max-width: 900px) {
+    #BODY {
+        padding: clamp(60px, 10vw, 80px) 5vw; /* min - preferred- max -- left and right */
+    }
+
+    .introduction,
+    .image1 {
+        width: 100%;
+    }
+}
+
+/*
+   INTRO TEXT
+*/
+.introduction {
+    width: clamp(320px, 40vw, 640px);
+}
+
+/*
+   IMAGE
+*/
+.image1 img {
+    max-width: clamp(320px, 45vw, 540px);
+    border-radius: clamp(12px, 2vw, 15px);
+}
+
+@media (max-width: 480px) {
+    #BODY {
+        flex-direction: column;
+        height: auto;              /* allow content to grow */
+        min-height: 100svh;        /* still fill screen */
+        gap: clamp(24px, 6vw, 40px);
+    }
+
+    .introduction,
+    .image1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .image1 img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* iPad centering fix */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .image1 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/*
+   BRANDS
+*/
+#BRANDS {
+    padding: clamp(40px, 8vw, 60px) clamp(16px, 4vw, 20px);
+}
+
+#BRANDS h1 {
+    font-size: clamp(28px, 5vw, 36px);
+    margin-bottom: clamp(20px, 5vw, 30px);
+}
+
+.slideshow-container {
+    max-width: clamp(320px, 90vw, 900px);
+    border-radius: clamp(18px, 4vw, 25px);
+}
+
+.slide img {
+    height: clamp(280px, 45vw, 450px);
+}
+
+/*
+   SLIDE CONTENT
+*/
+.slide-content {
+    padding: clamp(20px, 5vw, 30px);
+}
+
+.slide-content h2 {
+    font-size: clamp(20px, 4vw, 26px);
+}
+
+.slide-content p {
+    font-size: clamp(14px, 2.8vw, 16px);
+    max-width: clamp(320px, 80vw, 600px);
+}
+
+/*
+   BUTTON
+*/
+.btn {
+    padding: clamp(12px, 3vw, 15px) clamp(18px, 5vw, 24px);
+    border-radius: clamp(24px, 6vw, 30px);
+}
+
+/*
+   NAV BUTTONS
+*/
+.nav {
+    padding: clamp(10px, 3vw, 15px);
+    font-size: clamp(16px, 3vw, 20px);
+    border-radius: 50%;;
+}
+
+.prev {
+    left: clamp(8px, 2vw, 10px);
+    
+}
+
+.prev:hover{
+    background: #9ee600;
+    transform: scale(1.05);
+    color:black;
+}
+
+.next {
+    right: clamp(8px, 2vw, 10px);
+}
+
+.next:hover{
+    background: #9ee600;
+    transform: scale(1.05);
+    color:black;
+}
+
+/*
+   SERVICES SECTION
+*/
+.SERVICES {
+    padding-bottom: clamp(60px, 10vw, 80px);
+}
+
+.OUR {
+    margin-top: clamp(20px, 4vw, 30px);
+}
+
+/*
+   SERVICES GRID
+*/
+.grid-container {
+    gap: clamp(24px, 5vw, 40px);
+    padding: clamp(24px, 5vw, 40px);
+    max-width: clamp(960px, 90vw, 1200px);
+}
+
+.grid-item {
+    padding: clamp(20px, 4vw, 26px);
+    border-radius: clamp(14px, 2vw, 16px);
+}
+
+/*
+   GRID TEXT
+*/
+.grid-item h2 {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+}
+
+.grid-item p {
+    font-size: clamp(0.95rem, 1.4vw, 1rem);
+}
+
+/*
+   REVIEWS
+*/
+#REVIEWS {
+    padding: clamp(40px, 8vw, 50px) clamp(6%, 8vw, 8%);
+}
+
+.section-title {
+    margin-bottom: clamp(30px, 6vw, 50px);
+}
+
+.review-wrapper {
+    gap: clamp(30px, 6vw, 50px);
+    
+}
+
+.review-card {
+    padding: clamp(28px, 6vw, 40px) clamp(20px, 5vw, 30px);
+    border-radius: clamp(16px, 4vw, 20px);
+    box-shadow: 10px 10px 20px rgba(118,185,0, 0.2);
+}
+
+.review-card img {
+    width: clamp(80px, 18vw, 100px);
+    height: clamp(80px, 18vw, 100px);
+}
+
+.review-card:hover{
+    box-shadow: 10px 10px 20px rgba(118,185,0, 0.7);
+}
+
+/*
+   FOOTER
+*/
+@media (max-width: 768px) {
+    footer,
+    .footer {
+        flex-direction: column;
+        gap: 12px;
+        height: auto;
+        padding: 16px 0;
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+   SCROLL TO TOP
+*/
+#scrollTopBtn {
+    width: clamp(44px, 8vw, 50px);
+    height: clamp(44px, 8vw, 50px);
+    font-size: clamp(18px, 3vw, 20px);
+    bottom: clamp(20px, 5vw, 30px);
+    right: clamp(20px, 5vw, 30px);
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* iPad centering fix */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .grid-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

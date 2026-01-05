@@ -1,0 +1,627 @@
+body{
+    margin:0;
+    padding:0;
+    scroll-behavior: smooth;
+}
+
+/* 
+BODY SECTION 
+ */
+#BODY{
+    position: relative;
+    overflow: hidden;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left:auto;
+    margin-right:auto;
+    height:100vh;
+    align-items:center;
+    background-image: url("abstract-4K.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index:-1;                                    /* background behind content */
+}
+
+/* MAKES THE SECTION DARKER */
+#BODY::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);               /* adjust darkness here */
+    z-index: 0;
+}
+
+/*
+   INTRODUCTION TEXT
+*/
+.introduction{
+    width:40%;
+    text-align: justify;
+    color:whitesmoke;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Initial hidden state */
+.introduction h2,
+.introduction p{
+    opacity:0;
+    transform: translateY(20px);
+    line-height: 1.8;
+}
+
+/* Animate when body is visible */
+#BODY.animate .introduction h2{
+    animation: fadeUp 0.8s ease forwards;
+}
+
+#BODY.animate .introduction p{
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/*
+IMAGE 
+*/
+.image1{
+    width:40%;
+    opacity:0;
+    transform: scale(0.85) translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    display: flex;
+    justify-content: center;
+}
+
+#BODY.animate .image1{
+    opacity:1;
+    transform: scale(1) translateY(0);
+}
+
+/* IMAGE STYLING */
+.image1 img{
+    width:100%;
+    max-width: clamp(320px, 45vw, 540px);
+    border-radius: clamp(12px, 2vw, 15px);
+    height:auto;
+    display:block;
+}
+
+/*
+   KEYFRAMES FOR FADE UP ANIMATION
+*/
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+
+/*
+   RESPONSIVE FOR INTRO
+*/
+@media (max-width:900px){
+    #BODY{
+        height:auto;
+        padding:80px 5%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image1,
+    .introduction{
+        width:100%;
+    }
+
+    .introduction{
+        text-align:left;
+    }
+}
+
+/*
+PRODUCTS SECTION
+*/
+#BRANDS {
+    position: relative;
+    overflow: hidden;
+    background-image: url("abstract-4K.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 60px 20px;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#BRANDS h1 {
+    margin-bottom: 30px;
+    font-size: 36px;
+    color:whitesmoke;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 8px 5px 30px rgba(255, 255, 255, 0.4);
+}
+
+.slide {
+    display: none;
+    position: relative;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Hover zoom */
+.slide:hover img {
+    transform: scale(1.08);
+}
+
+.slide-content {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.0s ease;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Show content on hover */
+.slide:hover .slide-content {
+    opacity: 1;
+}
+
+.slide-content h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 600px;
+    font-style: italic;
+}
+
+.btn {
+    display: inline-flex;          
+    align-items: center;           /* vertical center */
+    justify-content: center;       /* horizontal center */
+    padding: 15px 24px;
+    background-color: #76b900;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    line-height: 1;                /*prevent text overflow */
+    box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.4);
+}
+
+
+.btn:hover {
+    background: #9ee600;
+    transform: scale(1.05);
+    color:black;
+}
+
+/* Navigation buttons */
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-10%);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.nav:hover {
+    background: rgba(30, 1, 1, 0.8);
+    color:whitesmoke;
+}
+
+
+/* ARCHITECTURE SECTION */
+.SERVICES {
+    position: relative;
+    background-image: url("abstract-4K.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+    overflow: hidden;
+}
+
+/* Dark overlay animation */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    animation: overlayFade 2s ease forwards;
+    z-index: 0;
+    opacity:0;
+}
+
+.SERVICES.animate .overlay {
+    animation: overlayFade 1.5s ease forwards;
+}
+
+
+@keyframes overlayFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/*
+   TITLE
+*/
+.OUR {
+    position: relative;
+    margin-top: 30px;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    z-index: 1;
+}
+
+/*
+   GRID (AUTO-FIT)
+*/
+.grid-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+/*
+   CARD
+*/
+.grid-item {
+    background: rgba(20, 20, 20, 0.85);
+    padding: 26px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    line-height: 1.7;
+    box-shadow: 5px 10px 25px rgba(255, 255, 255, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Hover effect */
+.grid-item:hover {
+    transform: translateY(-18px);
+    box-shadow: 10px 10px 20px rgba(118,185,0, 0.9);
+}
+
+/* 
+   ICON + TITLE
+*/
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.title-row i {
+    color: #76b900;
+}
+
+/*
+   TEXT
+*/
+.grid-item h2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.grid-item p {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    color: whitesmoke;
+}
+
+/*
+   FADE-IN ANIMATION
+*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 4.0s ease, transform 4.0s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
+   ACCESSIBILITY
+*/
+@media (prefers-reduced-motion: reduce) {
+    .fade-in,
+    .grid-item,
+    .overlay {
+        animation: none;
+        transition: none;
+        transform: none;
+        opacity: 1;
+    }
+}
+
+/*
+   Mobile Responsive for Grid
+*/
+@media (max-width: 768px) {
+    .SERVICES {
+        background-attachment: scroll;
+    }
+}
+
+/*
+REVIEWS
+*/
+#REVIEWS{
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    padding: 50px 8%;
+    background-image: url("abstract-4K.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#REVIEWS::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5); /* adjust darkness here */
+    z-index: 0;
+}
+
+/*
+Section Title
+*/
+.section-title{
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/*
+Grid styling
+*/
+.review-wrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+/*
+Card styling
+*/
+.review-card{
+    background: rgba(0,0,0,0.6);
+    padding: 40px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 10px 10px 20px rgba(118,185,0, 0.6);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease;
+}
+
+.review-card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.review-card h3{
+    color: #76b900;
+    margin-bottom: 15px;
+}
+
+.review-card p{
+    color: whitesmoke;
+    line-height: 1.7;
+}
+
+.review-card:hover{
+    box-shadow: 10px 10px 20px rgba(118,185,0, 0.8);
+}
+
+/*
+Animate when visible
+*/
+#REVIEWS.animate .section-title{
+    animation: fadeUp 0.8s ease forwards;
+}
+
+#REVIEWS.animate .review-card{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
+Stagger - animation delay
+*/
+#REVIEWS.animate .review-card:nth-child(1){ transition-delay: 0.2s; }
+#REVIEWS.animate .review-card:nth-child(2){ transition-delay: 0.4s; }
+#REVIEWS.animate .review-card:nth-child(3){ transition-delay: 0.6s; }
+#REVIEWS.animate .review-card:nth-child(4){ transition-delay: 0.8s; }
+#REVIEWS.animate .review-card:nth-child(5){ transition-delay: 1.0s; }
+#REVIEWS.animate .review-card:nth-child(6){ transition-delay: 1.2s; }
+
+/*
+Card animation keyframe
+*/
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*
+Responsive grid layout
+*/
+@media (max-width: 900px){
+    .review-wrapper{
+        grid-template-columns: 1fr;
+    }
+}
+
+/*
+Emoji bounce animation
+*/
+.bounce {
+    display: inline-block;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/*
+FOOTER SECTION
+*/
+footer{
+    display:flex;
+    height:50px;
+    align-items: center;
+    justify-content: center;
+    background-color:black;
+    color:white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.copyright::before{
+    content: "\00A9 ";
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  font-size: 14px;
+}
+
+.social-icons{
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.footer h4{
+   margin-left:auto;
+   margin-right:auto;
+}
+
+.footer .social-icons a {
+  margin-left: 12px;
+  color: #76b900;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.footer .social-icons a:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+
+/* 
+SCROLL TO TOP BUTTON 
+*/
+
+#scrollTopBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:0; 
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: #76b900;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;                                  /* hidden until scroll */
+    box-shadow: 0 10px 20px rgba(6, 0, 0, 0.3);
+    transition: opacity 0.3s, transform 0.3s;
+    
+}
+
+#scrollTopBtn:hover {
+    transform: scale(1.3);
+    background: #233701;
+}

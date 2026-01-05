@@ -1,0 +1,108 @@
+/*
+   HERO RESPONSIVE
+*/
+
+/* CONTENT WRAPPER */
+.content {
+    max-width: clamp(320px, 60vw, 600px);
+    padding: clamp(64px, 10vw, 120px) clamp(24px, 8vw, 80px);
+}
+
+/* TAG */
+.tag {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    margin-bottom: clamp(4px, 1vw, 5px);
+}
+
+/* PARAGRAPH */
+.content p {
+    font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+    max-width: clamp(300px, 55vw, 520px);
+}
+
+/* BUTTON */
+.hero-btn {
+    padding: clamp(12px, 3vw, 15px) clamp(18px, 5vw, 25px);
+}
+
+/* DOTS POSITION */
+.hero-dots {
+    bottom: clamp(20px, 6vw, 40px);
+    left: clamp(24px, 8vw, 80px);
+    gap: clamp(8px, 2vw, 12px);
+}
+
+/* DOT SIZE */
+.hero-dot {
+    width: clamp(8px, 2vw, 10px);
+    height: clamp(8px, 2vw, 10px);
+}
+
+/*
+   TABLET ADJUSTMENTS
+*/
+@media (max-width: 1024px) {
+    .content {
+        padding: clamp(56px, 10vw, 100px) clamp(24px, 6vw, 60px);
+    }
+
+    .hero-dots {
+        left: clamp(20px, 6vw, 60px);
+    }
+}
+
+/*
+   MOBILE ADJUSTMENTS
+*/
+@media (max-width: 768px) {
+    .hero {
+        height: 100svh; /* safer mobile viewport */
+    }
+
+    .content {
+        padding: clamp(48px, 12vw, 80px) clamp(20px, 6vw, 40px);
+        max-width: 100%;
+    }
+
+    .hero-dots {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: clamp(16px, 6vw, 24px);
+    }
+}
+
+/* 
+   SMALL MOBILE 
+*/
+@media (max-width: 480px) {
+    .content h1 {
+        line-height: 1.3;
+    }
+
+    .content p {
+        line-height: 1.5;
+    }
+}
+
+/* HERO IMAGE FIT  */
+@media (max-width: 1024px) {
+    .hero-slide {
+        background-position: 60% center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 100svh;
+    }
+
+    .hero-slide {
+        background-position: center top;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-slide {
+        background-position: center 20%;
+    }
+}
