@@ -17,7 +17,7 @@ BODY SECTION
     margin-right:auto;
     height:100vh;
     align-items:center;
-    background-image: url("abstract-4K.jpg");
+    background-image: url("../assets/abstract-4K.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -128,7 +128,7 @@ PRODUCTS SECTION
 #BRANDS {
     position: relative;
     overflow: hidden;
-    background-image: url("abstract-4K.jpg");
+    background-image: url("../assets/abstract-4K.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -258,7 +258,7 @@ PRODUCTS SECTION
 /* ARCHITECTURE SECTION */
 .SERVICES {
     position: relative;
-    background-image: url("abstract-4K.jpg");
+    background-image: url("../assets/abstract-4K.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -410,7 +410,7 @@ REVIEWS
     overflow: hidden;
     min-height: 100vh;
     padding: 50px 8%;
-    background-image: url("abstract-4K.jpg");
+    background-image: url("../assets/abstract-4K.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
